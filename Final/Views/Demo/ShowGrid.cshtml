@@ -1,0 +1,132 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+  
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+
+    <script>
+
+        
+
+        $(document).ready(function () {
+            $("#demoGrid").DataTable({
+
+                "processing": true, // for show progress bar
+                "serverSide": true, // for process server side
+                "filter": true, // this is for disable filter (search box)
+                "orderMulti": false, // for disable multiple column at once
+                "pageLength": 5,
+
+                "ajax": {
+                    "url": "/Demo/LoadData",
+                    "type": "POST",
+                    "datatype": "json"
+                },
+
+                "columnDefs":
+                [{
+                    "targets": [0],
+                    "visible": false,
+                    "searchable": false
+                },
+                {
+                    "targets": [7],
+                    "searchable": false,
+                    "orderable": false
+                },
+                {
+                    "targets": [8],
+                    "searchable": false,
+                    "orderable": false
+                },
+                {
+                    "targets": [9],
+                    "searchable": false,
+                    "orderable": false
+                }],
+
+                "columns": [
+                    { "data": "UserTimestamp", "name": "UserTimestamp", "autoWidth": true },
+                    { "data": "Name", "name": "Name", "autoWidth": true },
+                    { "data": "Question", "title": "Question", "name": "Question", "autoWidth": true },
+                    { "data": "Answer", "name": "Answer", "autoWidth": true },
+                    { "data": "Datetime", "name": "Datetime", "autoWidth": true },
+                    { "data": "Score", "name": "Score", "autoWidth": true },
+                    { "data": "Channel", "name": "Channel", "autoWidth": true },
+                    { "data": "Feedback", "name": "Feedback", "title": "Status", "autoWidth": true },
+                    { "data": "Tag", "name": "Tag", "autoWidth": true },
+                    { "data": "Updated_by", "name": "Updated_by", "autoWidth": true },
+                    { "data": "Updated_time", "name": "Updated_time", "autoWidth": true },
+
+                      {
+                          "render": function (data, type, full, meta)
+                          { return '<a class="btn btn-info" href="/Demo/Edit/' + full.UserTimestamp + '">Edit</a>'; }
+                      },
+                       {
+                           data: null, render: function (data, type, row) {
+                               return "<a href='#' class='btn btn-danger' onclick=DeleteData('" + row.UserTimestamp + "'); >Delete</a>";
+                           }
+                    },
+
+                    {
+                        "render": function (data, type, full, meta) {
+                            return '<a class="btn btn-info" href="/Demo/Show/' + full.UserTimestamp + '">Show</a>';
+                        }
+                    },
+
+                ]
+
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <div class="container">
+
+    <select>
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="mercedes">Mercedes</option>
+          <option value="audi">Audi</option>
+    </select>
+
+
+        <br />
+        <div style="width:90%; margin:0 auto;">
+            <table id="demoGrid" class="table table-striped table-bordered dt-responsive nowrap" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>UserTimestamp</th>
+                        <th>Name</th>
+                        <th>Question</th>
+                        <th>Answer</th>
+                        <th>Datetime</th>
+                        <th>Score</th>
+                        <th>Channel</th>
+                        <th>Feedback</th>
+                        <th>Tag</th>
+                        <th>Updated_by</th>
+                        <th>Updated_time</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                        <th>Show</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

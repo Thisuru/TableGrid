@@ -1,0 +1,106 @@
+﻿@model Final.Models.CheckassistantCombined
+
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Show</h2>
+
+<div>
+    <h4>CheckassistantCombined</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserTimestamp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserTimestamp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Question)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Question)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Answer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Answer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Datetime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Datetime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Score)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Score)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Channel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Channel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Feedback)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Feedback)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Updated_by)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Updated_by)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Updated_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Updated_time)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
